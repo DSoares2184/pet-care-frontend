@@ -1,5 +1,9 @@
-import { useEffect } from "react"
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { createOrUpdatePet, deletePet, getAllPets, getPetById } from "./services/main/pets"
+import PetsList from "./components/PetsList";
+import PetDetail from "./components/PetDetails";
+import PetForm from "./components/PetForm";
 
 function App() {
   useEffect(() => {
@@ -46,12 +50,15 @@ function App() {
     };
   }, [])
 
-
   return (
     <>
-      <h1>Base project</h1>
+      <h1 className="text-center">Pet Care</h1>
+      <Link to="/new-pet" className="btn btn-primary">
+        Create new Pet
+      </Link>
+      <PetsList />
     </>
-  )
+  );
 }
 
 export default App
